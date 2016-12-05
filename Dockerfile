@@ -28,7 +28,7 @@ RUN set -x \
     && mv logfan_v${LOGFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/logfan \
     && apk del .deps
 
-RUN mkdir /config && chown logfan:logfan /data
+RUN mkdir /config && chown logfan:logfan /config
 VOLUME ["/config"]
 
 ENTRYPOINT ["dumb-init", "gosu", "summitdb", "logfan"]

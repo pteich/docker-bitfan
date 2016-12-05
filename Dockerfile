@@ -31,6 +31,6 @@ RUN set -x \
 RUN mkdir /config && chown logfan:logfan /config
 VOLUME ["/config"]
 
-ENTRYPOINT ["dumb-init", "gosu", "summitdb", "logfan"]
+ENTRYPOINT ["dumb-init", "gosu", "logfan", "logfan"]
 
 CMD [""]

@@ -7,3 +7,4 @@ services:
     container_name: logfan
     volumes:
       - ./config:/config
+    command: run /config/simple.conf      

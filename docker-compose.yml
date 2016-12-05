@@ -1,0 +1,9 @@
+version: '2'
+services:
+  logfan:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: logfan
+    volumes:
+      - ./config:/config

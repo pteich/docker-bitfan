@@ -25,7 +25,7 @@ RUN set -x \
     && wget -O logfan.tar.gz "https://github.com/veino/logfan/releases/download/${LOGFAN_VERSION}/logfan_v${LOGFAN_VERSION}_linux_${dpkgArch}.tgz" \
     && tar xzvf logfan.tar.gz \
     && rm -f logfan.tar.gz \
-    && mv logfan-v${LOGFAN_VERSION}-linux-${dpkgArch} /usr/local/bin/logfan \
+    && mv logfan_v${LOGFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/logfan \
     && apk del .deps
 
 RUN mkdir /config && chown logfan:logfan /data

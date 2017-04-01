@@ -25,7 +25,7 @@ RUN set -x \
     && wget -O bitfan.tar.gz "https://github.com/vjeantet/bitfan/releases/download/${BITFAN_VERSION}/bitfan_v${BITFAN_VERSION}_linux_${dpkgArch}.tgz" \
     && tar xzvf bitfan.tar.gz \
     && rm -f bitfan.tar.gz \
-    && mv bitfan_v${BITFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/bitfan \
+    && mv releases/bitfan_v${BITFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/bitfan \
     && apk del .deps
 
 RUN mkdir /config && chown bitfan:bitfan /config

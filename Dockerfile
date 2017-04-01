@@ -22,7 +22,7 @@ RUN set -x \
     && chmod +x /usr/local/bin/gosu \
     && wget -O /usr/local/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v${DUMBINIT_VERSION}/dumb-init_${DUMBINIT_VERSION}_${dpkgArch}" \
     && chmod +x /usr/local/bin/dumb-init \    
-    && wget -O bitfan.tar.gz "https://github.com/veino/bitfan/releases/download/${BITFAN_VERSION}/bitfan_v${bitfan_VERSION}_linux_${dpkgArch}.tgz" \
+    && wget -O bitfan.tar.gz "https://github.com/vjeantet/bitfan/releases/download/${BITFAN_VERSION}/bitfan_v${BITFAN_VERSION}_linux_${dpkgArch}.tgz" \
     && tar xzvf bitfan.tar.gz \
     && rm -f bitfan.tar.gz \
     && mv bitfan_v${BITFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/bitfan \

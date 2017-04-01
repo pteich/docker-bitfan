@@ -3,9 +3,10 @@ FROM alpine:3.4
 MAINTAINER Peter Teich <mail@pteich.xyz>
 
 ENV GOSU_VERSION 1.10
-ENV LOGFAN_VERSION 10
+ENV DUMBINIT_VERSION 1.2.0
+ENV BITFAN_VERSION 18
 
-RUN addgroup -S logfan && adduser -S -G logfan logfan
+RUN addgroup -S bitfan && adduser -S -G bitfan bitfan
 
 RUN mkdir -p /opt
 
@@ -19,15 +20,17 @@ RUN set -x \
     && dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
     && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-${dpkgArch}" \
     && chmod +x /usr/local/bin/gosu \
-    && wget -O logfan.tar.gz "https://github.com/veino/logfan/releases/download/${LOGFAN_VERSION}/logfan_v${LOGFAN_VERSION}_linux_${dpkgArch}.tgz" \
-    && tar xzvf logfan.tar.gz \
-    && rm -f logfan.tar.gz \
-    && mv logfan_v${LOGFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/logfan \
+    && wget -O /usr/local/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v${DUMBINIT_VERSION}/dumb-init_${DUMBINIT_VERSION}_${dpkgArch}" \
+    && chmod +x /usr/local/bin/dumb-init \    
+    && wget -O bitfan.tar.gz "https://github.com/veino/bitfan/releases/download/${BITFAN_VERSION}/bitfan_v${bitfan_VERSION}_linux_${dpkgArch}.tgz" \
+    && tar xzvf bitfan.tar.gz \
+    && rm -f bitfan.tar.gz \
+    && mv bitfan_v${BITFAN_VERSION}_linux_${dpkgArch} /usr/local/bin/bitfan \
     && apk del .deps
 
-RUN mkdir /config && chown logfan:logfan /config
+RUN mkdir /config && chown bitfan:bitfan /config
 VOLUME ["/config"]
 
-ENTRYPOINT ["/usr/local/bin/gosu", "logfan", "/usr/local/bin/logfan"]
+ENTRYPOINT ["/usr/local/bin/dumb-init", "/usr/local/bin/gosu", "bitfan", "/usr/local/bin/bitfan"]
 
 CMD [""]

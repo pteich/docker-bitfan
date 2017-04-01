@@ -1,14 +1,14 @@
-# docker-logfan
-Dockerfile for Logfan Docker image based on Alpine
+# docker-bitfan
+Dockerfile for Bitfan (former Logfan) Docker image based on Alpine
 
-[Logfan](https://github.com/veino/logfan) is a lightweight Logstash replacement written in Go.
+[Bitfan](https://github.com/vjeantet/bitfan) is a lightweight Logstash replacement written in Go.
 
 ## Basic Usage
 
 Create a valid config file e.g. `simple.conf` in a specific folder. 
 
 ```bash
-docker run -d --name=logfan -v /path/to/config:/config pteich/logfan:latest run /config/simple.conf
+docker run -d --name=bitfan -v /path/to/config:/config pteich/logfan:latest run /config/simple.conf
 ```
 
 ## Usage like local CLI

@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: logfan
+    container_name: bitfan
     volumes:
       - ./config:/config
     command: run /config/simple.conf      

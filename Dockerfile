@@ -1,10 +1,10 @@
-FROM alpine:3.4
+FROM alpine:3.5
 
 MAINTAINER Peter Teich <mail@pteich.xyz>
 
 ENV GOSU_VERSION 1.10
 ENV DUMBINIT_VERSION 1.2.0
-ENV BITFAN_VERSION 18
+ENV BITFAN_VERSION 29
 
 RUN addgroup -S bitfan && adduser -S -G bitfan bitfan
 
